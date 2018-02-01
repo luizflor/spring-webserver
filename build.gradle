@@ -46,6 +46,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-websocket:$spring_boot_version") {
         exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
     }
+    compile("org.springframework.boot:spring-boot-starter-actuator:$spring_boot_version") {
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+    }
     compile "org.springframework.boot:spring-boot-starter-log4j2:$spring_boot_version"
     compile "org.apache.logging.log4j:log4j-web:2.7"
 }
@@ -80,7 +83,7 @@ task deployNodes(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 task runPartyAServer(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'net.corda.server.ServerKt'
-    environment "server.port", "10010"
+    environment "server.port", "10014"
     environment "config.rpc.username", "user1"
     environment "config.rpc.password", "test"
     environment "config.rpc.host", "localhost"
