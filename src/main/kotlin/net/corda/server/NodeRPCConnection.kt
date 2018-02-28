@@ -33,9 +33,9 @@ open class NodeRPCConnection(
         @Value("\${$CORDA_RPC_PORT}") private val rpcPort: Int): AutoCloseable {
 
     lateinit var rpcConnection: CordaRPCConnection
-        private set
+//        private set
     lateinit var proxy: CordaRPCOps
-        private set
+//        private set
 
     @PostConstruct
     fun initialiseNodeRPCConnection() {
